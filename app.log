@@ -1,0 +1,172 @@
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+app - ERROR - Exception on /api/storage/search [GET]
+Traceback (most recent call last):
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/smbdawsm/projects/gtn_storage/master/app/storage.py", line 50, in search_by_user
+    q = Search_query.objects.filter((Q(date__gte=json_data['date_from'])))
+NameError: name 'Q' is not defined
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 17:22:03] "[35m[1mGET /api/storage/search HTTP/1.1[0m" 500 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+app - ERROR - Exception on /api/storage/search [GET]
+Traceback (most recent call last):
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/smbdawsm/projects/gtn_storage/master/app/storage.py", line 51, in search_by_user
+    result = [query.to_json() for query in q]
+  File "/home/smbdawsm/projects/gtn_storage/master/app/storage.py", line 51, in <listcomp>
+    result = [query.to_json() for query in q]
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/mongoengine/queryset/queryset.py", line 110, in _iter_results
+    self._populate_cache()
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/mongoengine/queryset/queryset.py", line 129, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 1565, in __next__
+    raw_doc = next(self._cursor)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 1635, in _cursor
+    self._cursor_obj = self._collection.find(self._query, **self._cursor_args)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 1684, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/mongoengine/queryset/visitor.py", line 91, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/mongoengine/queryset/visitor.py", line 184, in accept
+    return visitor.visit_query(self)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/mongoengine/queryset/visitor.py", line 80, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/mongoengine/queryset/transform.py", line 120, in query
+    value = field.prepare_query_value(op, value)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/mongoengine/fields.py", line 711, in prepare_query_value
+    return super().prepare_query_value(op, self._convert_from_datetime(value))
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/mongoengine/fields.py", line 660, in _convert_from_datetime
+    return val.strftime(self.format)
+AttributeError: 'str' object has no attribute 'strftime'
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 17:23:48] "[35m[1mGET /api/storage/search HTTP/1.1[0m" 500 -
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 17:28:05] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 17:28:30] "[31m[1mGET /api/storage/search HTTP/1.1[0m" 400 -
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 17:29:03] "[31m[1mGET /api/storage/search HTTP/1.1[0m" 400 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:39:10] "[31m[1mGET /api/storage/search HTTP/1.1[0m" 400 -
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:40:39] "[31m[1mGET /api/storage/search HTTP/1.1[0m" 400 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:41:14] "[31m[1mGET /api/storage/search HTTP/1.1[0m" 400 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:41:38] "[31m[1mGET /api/storage/search HTTP/1.1[0m" 400 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:43:03] "[31m[1mGET /api/storage/search HTTP/1.1[0m" 400 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:43:34] "[31m[1mGET /api/storage/search HTTP/1.1[0m" 400 -
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:43:39] "[31m[1mGET /api/storage/search HTTP/1.1[0m" 400 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:45:18] "[31m[1mGET /api/storage/search HTTP/1.1[0m" 400 -
+root - ERROR - {'date_from': 'Tue, 12 Jan 2021 16:49:49 GMT'}
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:45:31] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+root - ERROR - {'date_from': '2021,01,12,16,49,49,242961'}
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:46:09] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+root - ERROR - {'user_id': 'user1'}
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:47:25] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+root - ERROR - {'user_id': 'user1'}
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:47:42] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:55:45] "[37mGET /api/storage/add HTTP/1.1[0m" 200 -
+rq.worker - INFO - [32mlow[39;49;00m: [34mJob OK[39;49;00m (74e33372-6b4b-4eb7-a511-dbb4e963c810)
+rq.worker - INFO - Result is kept for 500 seconds
+root - ERROR - {'user_id': 'user1'}
+app - ERROR - Exception on /api/storage/search [GET]
+Traceback (most recent call last):
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/smbdawsm/projects/gtn_storage/master/app/storage.py", line 54, in search_by_user
+    return jsonify(resulta)
+NameError: name 'resulta' is not defined
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:56:23] "[35m[1mGET /api/storage/search HTTP/1.1[0m" 500 -
+root - ERROR - {'user_id': 'user3'}
+app - ERROR - Exception on /api/storage/search [GET]
+Traceback (most recent call last):
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/smbdawsm/projects/gtn_storage/master/app/storage.py", line 54, in search_by_user
+    return jsonify(resulta)
+NameError: name 'resulta' is not defined
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:56:35] "[35m[1mGET /api/storage/search HTTP/1.1[0m" 500 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+root - ERROR - {'user_id': 'user3'}
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:56:54] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+root - ERROR - {'date_from': '2021-01-12T18:55:46.567Z'}
+app - ERROR - Exception on /api/storage/search [GET]
+Traceback (most recent call last):
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/smbdawsm/projects/gtn_storage/master/.venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/smbdawsm/projects/gtn_storage/master/app/storage.py", line 54, in search_by_user
+    return jsonify(result)
+UnboundLocalError: local variable 'result' referenced before assignment
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:57:49] "[35m[1mGET /api/storage/search HTTP/1.1[0m" 500 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+root - ERROR - {'date_from': '2021-01-12T18:55:46.567Z'}
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:58:21] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+root - ERROR - {'date_from': '2021-01-12T18:54:46.567Z'}
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:58:34] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+root - ERROR - {'date_from': '2021-01-12T18:24:46.567Z'}
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:58:52] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 18:59:33] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 19:00:30] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO -  * Running on http://127.0.0.1:5050/ (Press CTRL+C to quit)
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 19:09:21] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 19:09:30] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 19:09:52] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 19:24:56] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 19:25:03] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 19:25:13] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
+werkzeug - INFO - 127.0.0.1 - - [12/Jan/2021 19:25:19] "[37mGET /api/storage/search HTTP/1.1[0m" 200 -
